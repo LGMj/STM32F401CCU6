@@ -27,6 +27,10 @@
 /* USER CODE BEGIN Includes */
 #include "st7789.h"
 #include "SEGGER_RTT.h"
+#include "lvgl.h"
+#include "lv_port_disp.h"
+#include "lv_port_indev.h"
+#include "ui.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,8 +96,16 @@ int main(void)
   MX_DMA_Init();
   MX_TIM10_Init();
   MX_SPI1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(&htim10);
+  HAL_TIM_Base_Start_IT(&htim2);
+  HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
   ST7789_Init();
+  lv_init();
+  lv_port_disp_init();
+  lv_port_indev_init();
+  ui_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,10 +115,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    printf("LCD test start\n");
-    HAL_Delay(1000);
-    ST7789_Test();
-    //SEGGER_RTT_printf(0, "=\n");
+    lv_timer_handler();
+    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -172,7 +182,18 @@ void SystemClock_Config(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* USER CODE BEGIN Callback 0 */
+  static uint16_t cnt = 0;
+  if (htim->Instance == TIM10) 
+  {
+    cnt++;
+    if(cnt >= 500)
+    {
+      cnt = 0;
+      HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+    }
 
+    lv_tick_inc(1);
+  }
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM11) {
     HAL_IncTick();

@@ -25,7 +25,7 @@
     <configuration
       Name="Common"
       arm_architecture="v7EM"
-      arm_compiler_variant="SEGGER"
+      arm_compiler_variant="gcc"
       arm_core_type="Cortex-M4"
       arm_endian="Little"
       arm_fpu_type="FPv4-SP-D16"
@@ -33,10 +33,11 @@
       arm_target_device_name="STM32F401CC"
       arm_target_interface_type="SWD"
       c_preprocessor_definitions=""
-      c_user_include_directories="$(ProjectDir)/RTT/;$(ProjectDir)/Hardware/ST7789/"
+      c_user_include_directories="$(ProjectDir)/RTT/;$(ProjectDir)/Hardware/ST7789/;$(ProjectDir)/LVGL/lv_port_pc_vscode/lvgl/;$(ProjectDir)/LVGL/lv_port_pc_vscode/lvgl/examples/porting;$(ProjectDir)/LVGL/lv_port_pc_vscode/lvgl/src;$(ProjectDir)/LVGL/lv_port_pc_vscode/ui/"
       debug_register_definition_file="$(ProjectDir)/ES/STM32F401_Registers.xml"
       debug_start_from_entry_point_symbol="No"
       debug_target_connection="J-Link"
+      gcc_c_language_standard="gnu99"
       link_linker_script_file="$(ProjectDir)/ES/STM32F4xx_Flash.icf"
       linker_memory_map_file="$(ProjectDir)/ES/STM32F401CCUx_MemoryMap.xml"
       linker_section_placements_segments="FLASH1 RX 0x08000000 0x00040000;RAM1 RWX 0x20000000 0x00010000;"
@@ -58,6 +59,7 @@
       linker_section_placements_segments="FLASH1 RX 0x08000000 0x00040000;RAM1 RWX 0x20000000 0x00010000;" />
     <configuration
       Name="Debug Internal"
+      arm_compiler_variant="gcc"
       build_intermediate_directory="$(Configuration)"
       build_output_directory="$(Configuration)" />
     <configuration
@@ -111,6 +113,443 @@
       filter="*.c;*.h;*.cpp;*.hpp;*.s;*.S"
       path="Library"
       recurse="Yes" />
+    <folder Name="LVGL">
+      <folder Name="lvgl">
+        <folder Name="porting">
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/examples/porting/lv_port_disp.c" />
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/examples/porting/lv_port_disp.h" />
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/examples/porting/lv_port_fs.c" />
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/examples/porting/lv_port_fs.h" />
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/examples/porting/lv_port_indev.c" />
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/examples/porting/lv_port_indev.h" />
+        </folder>
+        <folder Name="src">
+          <folder Name="core">
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_disp.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_disp.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_event.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_event.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_group.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_group.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_indev.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_indev.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_indev_scroll.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_indev_scroll.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_class.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_class.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_draw.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_draw.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_pos.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_pos.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_scroll.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_scroll.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_style.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_style.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_style_gen.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_style_gen.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_tree.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_obj_tree.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_refr.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_refr.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_theme.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/core/lv_theme.h" />
+          </folder>
+          <folder Name="draw">
+            <folder Name="arm2d">
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/arm2d/lv_gpu_arm2d.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/arm2d/lv_gpu_arm2d.h" />
+            </folder>
+            <folder Name="stm32_dma2d">
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/stm32_dma2d/lv_gpu_stm32_dma2d.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/stm32_dma2d/lv_gpu_stm32_dma2d.h" />
+            </folder>
+            <folder Name="sw">
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw.h" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_arc.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_blend.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_blend.h" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_dither.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_dither.h" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_gradient.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_gradient.h" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_img.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_layer.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_letter.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_line.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_polygon.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_rect.c" />
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/sw/lv_draw_sw_transform.c" />
+            </folder>
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_arc.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_arc.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_img.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_img.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_label.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_label.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_layer.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_layer.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_line.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_line.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_mask.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_mask.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_rect.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_rect.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_transform.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_transform.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_triangle.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_draw_triangle.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_img_buf.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_img_buf.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_img_cache.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_img_cache.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_img_decoder.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/draw/lv_img_decoder.h" />
+          </folder>
+          <folder Name="extra">
+            <folder Name="layouts">
+              <folder Name="flex">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/layouts/flex/lv_flex.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/layouts/flex/lv_flex.h" />
+              </folder>
+              <folder Name="grid">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/layouts/grid/lv_grid.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/layouts/grid/lv_grid.h" />
+              </folder>
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/layouts/lv_layouts.h" />
+            </folder>
+            <folder Name="libs">
+              <folder Name="bmp">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/bmp/lv_bmp.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/bmp/lv_bmp.h" />
+              </folder>
+              <folder Name="ffmpeg">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/ffmpeg/lv_ffmpeg.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/ffmpeg/lv_ffmpeg.h" />
+              </folder>
+              <folder Name="freetype">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/freetype/lv_freetype.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/freetype/lv_freetype.h" />
+              </folder>
+              <folder Name="fsdrv">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/fsdrv/lv_fs_fatfs.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/fsdrv/lv_fs_littlefs.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/fsdrv/lv_fs_posix.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/fsdrv/lv_fs_stdio.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/fsdrv/lv_fs_win32.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/fsdrv/lv_fsdrv.h" />
+              </folder>
+              <folder Name="gif">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/gif/gifdec.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/gif/gifdec.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/gif/lv_gif.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/gif/lv_gif.h" />
+              </folder>
+              <folder Name="png">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/png/lodepng.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/png/lodepng.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/png/lv_png.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/png/lv_png.h" />
+              </folder>
+              <folder Name="qrcode">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/qrcode/lv_qrcode.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/qrcode/lv_qrcode.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/qrcode/qrcodegen.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/qrcode/qrcodegen.h" />
+              </folder>
+              <folder Name="rlottie">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/rlottie/lv_rlottie.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/rlottie/lv_rlottie.h" />
+              </folder>
+              <folder Name="sjpg">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/sjpg/lv_sjpg.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/sjpg/lv_sjpg.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/sjpg/tjpgd.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/sjpg/tjpgd.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/sjpg/tjpgdcnf.h" />
+              </folder>
+              <folder Name="tiny_ttf">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/tiny_ttf/lv_tiny_ttf.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/tiny_ttf/lv_tiny_ttf.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/tiny_ttf/stb_rect_pack.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/tiny_ttf/stb_truetype_htcw.h" />
+              </folder>
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/libs/lv_libs.h" />
+            </folder>
+            <folder Name="others">
+              <folder Name="fragment">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/fragment/lv_fragment.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/fragment/lv_fragment.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/fragment/lv_fragment_manager.c" />
+              </folder>
+              <folder Name="gridnav">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/gridnav/lv_gridnav.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/gridnav/lv_gridnav.h" />
+              </folder>
+              <folder Name="ime">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/ime/lv_ime_pinyin.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/ime/lv_ime_pinyin.h" />
+              </folder>
+              <folder Name="imgfont">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/imgfont/lv_imgfont.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/imgfont/lv_imgfont.h" />
+              </folder>
+              <folder Name="monkey">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/monkey/lv_monkey.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/monkey/lv_monkey.h" />
+              </folder>
+              <folder Name="msg">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/msg/lv_msg.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/msg/lv_msg.h" />
+              </folder>
+              <folder Name="snapshot">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/snapshot/lv_snapshot.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/snapshot/lv_snapshot.h" />
+              </folder>
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/others/lv_others.h" />
+            </folder>
+            <folder Name="themes">
+              <folder Name="basic">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/themes/basic/lv_theme_basic.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/themes/basic/lv_theme_basic.h" />
+              </folder>
+              <folder Name="default">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/themes/default/lv_theme_default.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/themes/default/lv_theme_default.h" />
+              </folder>
+              <folder Name="mono">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/themes/mono/lv_theme_mono.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/themes/mono/lv_theme_mono.h" />
+              </folder>
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/themes/lv_themes.h" />
+            </folder>
+            <folder Name="widgets">
+              <folder Name="animing">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/animimg/lv_animimg.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/animimg/lv_animimg.h" />
+              </folder>
+              <folder Name="calendar">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/calendar/lv_calendar.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/calendar/lv_calendar.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/calendar/lv_calendar_header_arrow.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/calendar/lv_calendar_header_arrow.h" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/calendar/lv_calendar_header_dropdown.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/calendar/lv_calendar_header_dropdown.h" />
+              </folder>
+              <folder Name="chart">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/chart/lv_chart.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/chart/lv_chart.h" />
+              </folder>
+              <folder Name="colorwheel">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.h" />
+              </folder>
+              <folder Name="imgbtn">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.h" />
+              </folder>
+              <folder Name="keyboard">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/keyboard/lv_keyboard.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/keyboard/lv_keyboard.h" />
+              </folder>
+              <folder Name="led">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/led/lv_led.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/led/lv_led.h" />
+              </folder>
+              <folder Name="list">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/list/lv_list.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/list/lv_list.h" />
+              </folder>
+              <folder Name="menu">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/menu/lv_menu.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/menu/lv_menu.h" />
+              </folder>
+              <folder Name="meter">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/meter/lv_meter.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/meter/lv_meter.h" />
+              </folder>
+              <folder Name="msgbox">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/msgbox/lv_msgbox.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/msgbox/lv_msgbox.h" />
+              </folder>
+              <folder Name="span">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/span/lv_span.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/span/lv_span.h" />
+              </folder>
+              <folder Name="spinbox">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/spinbox/lv_spinbox.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/spinbox/lv_spinbox.h" />
+              </folder>
+              <folder Name="spinner">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/spinner/lv_spinner.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/spinner/lv_spinner.h" />
+              </folder>
+              <folder Name="tabview">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/tabview/lv_tabview.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/tabview/lv_tabview.h" />
+              </folder>
+              <folder Name="tileview">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/tileview/lv_tileview.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/tileview/lv_tileview.h" />
+              </folder>
+              <folder Name="win">
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/win/lv_win.c" />
+                <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/win/lv_win.h" />
+              </folder>
+              <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/widgets/lv_widgets.h" />
+            </folder>
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/lv_extra.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/extra/lv_extra.h" />
+          </folder>
+          <folder Name="font">
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_dejavu_16_persian_hebrew.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_fmt_txt.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_fmt_txt.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_loader.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_loader.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_10.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_12.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_12_subpx.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_14.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_16.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_18.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_20.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_22.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_24.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_26.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_28.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_28_compressed.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_30.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_32.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_34.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_36.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_38.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_40.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_42.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_44.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_46.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_48.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_montserrat_8.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_simsun_16_cjk.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_unscii_16.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_font_unscii_8.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/font/lv_symbol_def.h" />
+          </folder>
+          <folder Name="hal">
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/hal/lv_hal.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/hal/lv_hal_disp.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/hal/lv_hal_disp.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/hal/lv_hal_indev.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/hal/lv_hal_indev.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/hal/lv_hal_tick.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/hal/lv_hal_tick.h" />
+          </folder>
+          <folder Name="misc">
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_anim.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_anim.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_anim_timeline.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_anim_timeline.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_area.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_area.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_assert.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_async.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_async.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_bidi.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_bidi.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_color.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_color.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_fs.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_fs.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_gc.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_gc.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_ll.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_ll.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_log.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_log.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_lru.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_lru.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_math.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_math.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_mem.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_mem.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_printf.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_printf.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_style.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_style.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_style_gen.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_style_gen.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_templ.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_templ.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_timer.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_timer.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_tlsf.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_tlsf.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_txt.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_txt.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_txt_ap.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_txt_ap.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_types.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_utils.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/misc/lv_utils.h" />
+          </folder>
+          <folder Name="widgets">
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_arc.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_arc.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_bar.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_bar.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_btn.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_btn.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_btnmatrix.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_btnmatrix.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_canvas.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_canvas.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_checkbox.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_checkbox.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_dropdown.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_dropdown.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_img.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_img.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_label.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_label.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_line.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_line.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_objx_templ.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_objx_templ.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_roller.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_roller.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_slider.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_slider.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_switch.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_switch.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_table.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_table.h" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_textarea.c" />
+            <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/widgets/lv_textarea.h" />
+          </folder>
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/lv_api_map.h" />
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/lv_conf_internal.h" />
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/lv_conf_kconfig.h" />
+          <file file_name="LVGL/lv_port_pc_vscode/lvgl/src/lvgl.h" />
+        </folder>
+      </folder>
+      <folder Name="ui">
+        <file file_name="LVGL/lv_port_pc_vscode/ui/ui.c" />
+        <file file_name="LVGL/lv_port_pc_vscode/ui/ui.h" />
+        <file file_name="LVGL/lv_port_pc_vscode/ui/components/ui_comp_hook.c" />
+        <file file_name="LVGL/lv_port_pc_vscode/ui/ui_events.h" />
+        <file file_name="LVGL/lv_port_pc_vscode/ui/ui_helpers.c" />
+        <file file_name="LVGL/lv_port_pc_vscode/ui/ui_helpers.h" />
+        <file file_name="LVGL/lv_port_pc_vscode/ui/screens/ui_Screen1.c" />
+        <file file_name="LVGL/lv_port_pc_vscode/ui/screens/ui_Screen2.c" />
+      </folder>
+      <file file_name="LVGL/lv_port_pc_vscode/lv_conf.h" />
+    </folder>
     <folder
       Name="Middlewares"
       exclude="Middlewares/;*_PP.s;*_PP.c"

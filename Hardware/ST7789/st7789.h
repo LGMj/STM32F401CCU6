@@ -208,7 +208,7 @@ extern SPI_HandleTypeDef ST7789_SPI_PORT;
 #define ST7789_RDID4   0xDD
 
 /* Advanced options */
-#define ST7789_COLOR_MODE_16bit 0x05    //  RGB565 (16bit)
+#define ST7789_COLOR_MODE_16bit 0x55    //  RGB565 (16bit)
 #define ST7789_COLOR_MODE_18bit 0x06    //  RGB666 (18bit)
 
 /* Basic operations */
